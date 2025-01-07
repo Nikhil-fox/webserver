@@ -1,0 +1,16 @@
+server:
+  address: ":8080"
+
+api:
+  version: "v1"
+  routes:
+    health: "/health"
+    get_items: "/items"
+    create_item: "/items"
+
+logging:
+  level: "info"
+
+telemetry:
+  enabled: true
+  metrics_endpoint: "/metrics"
