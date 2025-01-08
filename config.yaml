@@ -14,3 +14,8 @@ logging:
 telemetry:
   enabled: true
   metrics_endpoint: "/metrics"
+
+rate_limiting:
+  enabled: true
+  max_requests: 10
+  time_window: "1m"

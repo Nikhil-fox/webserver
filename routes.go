@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 	"sync"
 	"time"
@@ -15,7 +14,6 @@ func InitializeRoutes(config *Config) *mux.Router {
 
 	// Create rate limiter if enabled
 	if config.RateLimiting.Enabled {
-		log.Printf("Rate limiting enabled with max requests: %d and time window: %s", config.RateLimiting.MaxRequests, config.RateLimiting.TimeWindow)
 		timeWindow, _ := time.ParseDuration(config.RateLimiting.TimeWindow)
 		rateLimiter := newRateLimiter(config.RateLimiting.MaxRequests, timeWindow)
 		router.Use(RateLimitingMiddleware(rateLimiter)) // Apply globally

@@ -33,10 +33,6 @@ func main() {
 		log.Printf("Prometheus metrics available at %s", config.Telemetry.MetricsEndpoint)
 	}
 
-	if config.RateLimiting.Enabled {
-		log.Printf("Rate limiting enabled with max requests: %d and time window: %s", config.RateLimiting.MaxRequests, config.RateLimiting.TimeWindow)
-	}
-
 	// Step 5: Define the HTTP server
 	srv := &http.Server{
 		Addr:         config.Server.Address,
